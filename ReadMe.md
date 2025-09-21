@@ -7,7 +7,7 @@ A Laravel-based API for managing IT support tickets with React frontend using In
 ### Database Connection
 ```bash
 # Connect to PostgreSQL database
-psql -h 127.0.0.1 -U eliasjohnson -d aws_it_database
+psql -h 127.0.0.1 -U user -d aws_it_database
 
 # Common PostgreSQL commands:
 \dt                    # List all tables
