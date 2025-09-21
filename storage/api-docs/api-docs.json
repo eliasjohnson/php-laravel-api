@@ -1,0 +1,119 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "IT Ticket Management API",
+        "description": "API for managing IT support tickets",
+        "contact": {
+            "email": "eliasjohnson@example.com"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8000/api",
+            "description": "Local development server"
+        }
+    ],
+    "paths": {
+        "/tickets": {
+            "get": {
+                "tags": [
+                    "Tickets"
+                ],
+                "summary": "Get all tickets",
+                "description": "Retrieve all IT support tickets",
+                "operationId": "23abb903edea59ceb366f9f029c26991",
+                "responses": {
+                    "200": {
+                        "description": "List of tickets",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "ticket_id": {
+                                                "type": "integer",
+                                                "example": 2372
+                                            },
+                                            "subject": {
+                                                "type": "string",
+                                                "example": "Update Unifi Equipment"
+                                            },
+                                            "status": {
+                                                "type": "string",
+                                                "example": "Closed"
+                                            },
+                                            "priority": {
+                                                "type": "string",
+                                                "example": "Low"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/tickets/{id}": {
+            "get": {
+                "tags": [
+                    "Tickets"
+                ],
+                "summary": "Get single ticket",
+                "description": "Retrieve a specific ticket by ID",
+                "operationId": "7231698c431b84bf9e4919256db5db1d",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Ticket ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ticket details"
+                    },
+                    "404": {
+                        "description": "Ticket not found"
+                    }
+                }
+            }
+        },
+        "/stats": {
+            "get": {
+                "tags": [
+                    "Statistics"
+                ],
+                "summary": "Get ticket statistics",
+                "operationId": "fc507f054facc21896f8d08dffab7dcc",
+                "responses": {
+                    "200": {
+                        "description": "Ticket statistics"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Tickets",
+            "description": "Tickets"
+        },
+        {
+            "name": "Statistics",
+            "description": "Statistics"
+        }
+    ]
+}
